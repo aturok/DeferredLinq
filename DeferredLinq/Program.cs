@@ -13,7 +13,7 @@ namespace DeferredLinq
             string somePeople = @"Douglas R. Hofstadter,Egbert B. Gebstadter,James Gleik";
 
             var parser = new StatefulPersonParser();
-            var parsedPeople = somePeople.Split(',').Select(_ => parser.Parse(_));
+            var parsedPeople = somePeople.Split(',').Select(_ => parser.Parse(_)).ToList();
 
             var firstnames = parsedPeople.Select(p => p.Firstname);
             var middlenames = parsedPeople.Select(p => p.Middlename);
@@ -38,6 +38,11 @@ namespace DeferredLinq
             Console.WriteLine();
 
             Console.WriteLine(String.Format("A total of {0} people were parsed.", parser.People.Count));
+
+            foreach (var p in parser.People)
+            {
+                Console.WriteLine(p);
+            }
 
             Console.ReadLine();
         }
