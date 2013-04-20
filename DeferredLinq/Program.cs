@@ -14,10 +14,28 @@ namespace DeferredLinq
 
             var parser = new StatefulPersonParser();
             var parsedPeople = somePeople.Split(',').Select(_ => parser.Parse(_));
-            foreach (var p in parsedPeople)
+
+            var firstnames = parsedPeople.Select(p => p.Firstname);
+            var middlenames = parsedPeople.Select(p => p.Middlename);
+            var lastnames = parsedPeople.Select(p => p.Lastname);
+
+            foreach (var name in lastnames)
             {
-                Console.WriteLine(p.Lastname + ", " + p.Firstname + " " + p.Middlename);
+                Console.WriteLine(name);
             }
+            Console.WriteLine();
+
+            foreach (var name in firstnames)
+            {
+                Console.WriteLine(name);
+            }
+            Console.WriteLine();
+
+            foreach (var name in middlenames)
+            {
+                Console.WriteLine(name);
+            }
+            Console.WriteLine();
 
             Console.WriteLine(String.Format("A total of {0} people were parsed.", parser.People.Count));
 
