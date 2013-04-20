@@ -19,6 +19,8 @@ namespace DeferredLinq
                 Console.WriteLine(p.Lastname + ", " + p.Firstname + " " + p.Middlename);
             }
 
+            Console.WriteLine(String.Format("A total of {0} people were parsed.", parser.People.Count));
+
             Console.ReadLine();
         }
     }
