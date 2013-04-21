@@ -10,7 +10,7 @@ namespace DeferredLinq
     {
         static void Main(string[] args)
         {
-            string somePeople = @"Douglas R. Hofstadter,Egbert B. Gebstadter,James Gleik";
+            string somePeople = @"Douglas R. Hofstadter,Egbert B. Gebstadter,James Gleick";
 
             var parser = new StatefulPersonParser();
             var parsedPeople = somePeople.Split(',').Select(_ => parser.Parse(_)).ToList();
